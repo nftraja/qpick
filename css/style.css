@@ -568,7 +568,37 @@ display:block;
 font-size:13px;
 }
 
+/* =====================================================
+Search Dropdown Panel
+===================================================== */
 
+.search-panel{
+display:none;
+margin-top:8px;
+border-radius:14px;
+border:1px solid rgba(0,255,136,.25);
+background:#0b0b0b;
+overflow:hidden;
+}
+
+.search-panel a{
+display:block;
+padding:10px 12px;
+font-size:14px;
+color:#ffffff;
+text-decoration:none;
+border-bottom:1px solid rgba(255,255,255,.05);
+}
+
+.search-panel a:last-child{
+border-bottom:none;
+}
+
+.search-panel a:hover{
+background:rgba(0,255,136,.08);
+}
+
+/*
 /* ============================= */
 /* QPick Search Result Panel */
 /* ============================= */
@@ -596,8 +626,7 @@ cursor:pointer;
 .search-item:hover{
 background:rgba(0,255,136,.08);
 }
-
-/* =====================================================
+ =====================================================
 16. RESPONSIVE
 ===================================================== */
 
