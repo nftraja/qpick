@@ -121,6 +121,21 @@ behavior:"smooth"
 
 
 /* ======================================
+   Helper : Clean Category Text
+====================================== */
+
+function cleanCategory(text){
+
+return text
+.replace(/[^\w\s&]/g,"") 
+.replace(/\s+/g," ")
+.trim()
+.toLowerCase();
+
+}
+
+
+/* ======================================
    App Boot
 ====================================== */
 
@@ -173,10 +188,7 @@ link.addEventListener("click",function(e){
 
 e.preventDefault();
 
-/* clean emoji + spaces */
-let category=this.textContent
-.replace(/[^\w\s&]/g,"")
-.trim();
+let category=cleanCategory(this.textContent);
 
 toggleDrawer();
 
@@ -197,9 +209,13 @@ card.addEventListener("click",function(e){
 
 e.preventDefault();
 
-const title=this.querySelector(".quick-title").innerText.trim();
+let title=this.querySelector(".quick-title");
 
-loadCategory(title);
+if(!title) return;
+
+let category=cleanCategory(title.innerText);
+
+loadCategory(category);
 
 });
 
