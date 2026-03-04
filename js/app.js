@@ -1,7 +1,8 @@
 /* ===============================
-   QPick App Engine v1.0
-   Core UI + Navigation System
+   QPick App Engine
 ================================ */
+
+/* ---------- Elements ---------- */
 
 let drawer;
 let overlay;
@@ -23,24 +24,105 @@ document.body.style.overflow="";
 
 }
 
-/* ---------- App Boot ---------- */
+
+/* ======================================
+   Dummy Product Database
+====================================== */
+
+const dummyProducts = {
+
+"laptops & computing":[
+{title:"HP Pavilion Laptop",price:"₹59,990",link:"#"},
+{title:"Dell Inspiron Laptop",price:"₹54,990",link:"#"},
+{title:"Lenovo IdeaPad Slim",price:"₹49,990",link:"#"},
+{title:"ASUS VivoBook Laptop",price:"₹52,990",link:"#"}
+],
+
+"smartphones & tablets":[
+{title:"Samsung Galaxy Smartphone",price:"₹24,999",link:"#"},
+{title:"Redmi Note Smartphone",price:"₹17,999",link:"#"},
+{title:"Realme Narzo Smartphone",price:"₹14,999",link:"#"},
+{title:"iQOO Budget Smartphone",price:"₹19,999",link:"#"}
+],
+
+"audio & headphones":[
+{title:"Sony Wireless Headphones",price:"₹6,999",link:"#"},
+{title:"Boat Bluetooth Earbuds",price:"₹2,499",link:"#"},
+{title:"JBL Wireless Earphones",price:"₹3,999",link:"#"},
+{title:"Noise Airbuds",price:"₹2,199",link:"#"}
+]
+
+};
+
+
+/* ======================================
+   Load Products
+====================================== */
+
+function loadCategory(category){
+
+const grid=document.getElementById("productGrid");
+
+if(!grid) return;
+
+grid.innerHTML="";
+
+category=category.toLowerCase();
+
+let products=dummyProducts[category];
+
+if(!products){
+
+grid.innerHTML="<div class='glass-card'><div class='card-text'>Products coming soon</div></div>";
+
+return;
+}
+
+products.forEach(product=>{
+
+const card=document.createElement("div");
+
+card.className="glass-card";
+
+card.innerHTML=`
+
+<div class="card-title">${product.title}</div>
+
+<div class="theme-divider"></div>
+
+<div class="card-text">${product.price}</div>
+
+<a href="${product.link}" class="utility-btn">View Deal</a>
+
+`;
+
+grid.appendChild(card);
+
+});
+
+}
+
+
+/* ======================================
+   App Boot
+====================================== */
 
 document.addEventListener("DOMContentLoaded",function(){
 
 console.log("QPick App Loaded");
 
-/* elements */
-
 drawer=document.getElementById("drawer");
 overlay=document.getElementById("drawerOverlay");
 
-/* overlay close */
+
+/* ---------- Overlay Close ---------- */
 
 if(overlay){
 overlay.addEventListener("click",toggleDrawer);
 }
 
-/* ESC close */
+
+/* ---------- ESC Close ---------- */
 
 document.addEventListener("keydown",function(e){
 
@@ -50,19 +132,18 @@ toggleDrawer();
 
 });
 
-/* category links */
 
-const categoryLinks=document.querySelectorAll(".drawer a");
+/* ======================================
+   Drawer Category Click
+====================================== */
 
-categoryLinks.forEach(link=>{
+document.querySelectorAll(".drawer a").forEach(link=>{
 
 link.addEventListener("click",function(e){
 
 e.preventDefault();
 
 const category=this.textContent.trim();
-
-console.log("Category clicked:",category);
 
 toggleDrawer();
 
@@ -72,19 +153,18 @@ loadCategory(category);
 
 });
 
-/* quick cards */
 
-const quickCards=document.querySelectorAll(".quick-card");
+/* ======================================
+   Quick Card Click
+====================================== */
 
-quickCards.forEach(card=>{
+document.querySelectorAll(".quick-card").forEach(card=>{
 
 card.addEventListener("click",function(e){
 
 e.preventDefault();
 
-const title=this.querySelector(".quick-title").innerText;
-
-console.log("Quick category:",title);
+const title=this.querySelector(".quick-title").innerText.trim();
 
 loadCategory(title);
 
@@ -92,52 +172,4 @@ loadCategory(title);
 
 });
 
-/* utility buttons */
-
-const utilityBtns=document.querySelectorAll(".utility-btn");
-
-utilityBtns.forEach(btn=>{
-
-btn.addEventListener("click",function(e){
-
-e.preventDefault();
-
-const action=this.innerText;
-
-console.log("Utility action:",action);
-
 });
-
-});
-
-/* bottom nav */
-
-const bottomNav=document.querySelectorAll(".bottom-nav a");
-
-bottomNav.forEach(nav=>{
-
-nav.addEventListener("click",function(e){
-
-e.preventDefault();
-
-const navItem=this.innerText;
-
-console.log("Bottom nav:",navItem);
-
-});
-
-});
-
-});
-
-/* ======================================
-   Category Loader (Future Product API)
-====================================== */
-
-function loadCategory(category){
-
-console.log("Loading category:",category);
-
-/* future product loading system */
-
-}
