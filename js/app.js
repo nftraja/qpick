@@ -172,4 +172,15 @@ loadCategory(title);
 
 });
 
+function scrollCarousel(direction){
+
+const container = document.getElementById("guideCarousel");
+
+const scrollAmount = 220;
+
+container.scrollBy({
+left: direction * scrollAmount,
+behavior: "smooth"
 });
+
+}
