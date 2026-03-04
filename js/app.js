@@ -1,225 +1,182 @@
-/* ===============================
-   QPick App Engine
-================================ */
-
-/* ---------- Elements ---------- */
-
-let drawer;
-let overlay;
-let menuBtn;
+// =====================================================
+// QPICK CORE APP JS
+// =====================================================
 
 
-/* ---------- Drawer Toggle ---------- */
+// =====================================================
+// DRAWER MENU CONTROL
+// =====================================================
+
+const drawer = document.getElementById("drawer");
+const overlay = document.getElementById("drawerOverlay");
+const menuBtn = document.querySelector(".menu-btn");
 
 function toggleDrawer(){
-
-if(!drawer || !overlay) return;
 
 drawer.classList.toggle("active");
 overlay.classList.toggle("active");
 
-if(drawer.classList.contains("active")){
-document.body.style.overflow="hidden";
-}else{
-document.body.style.overflow="";
 }
 
-}
+menuBtn.addEventListener("click",toggleDrawer);
+
+overlay.addEventListener("click",toggleDrawer);
 
 
-/* ======================================
-   Dummy Product Database
-====================================== */
 
-const dummyProducts={
-
-"laptops & computing":[
-{title:"HP Pavilion Laptop",price:"₹59,990",link:"#"},
-{title:"Dell Inspiron Laptop",price:"₹54,990",link:"#"},
-{title:"Lenovo IdeaPad Slim",price:"₹49,990",link:"#"},
-{title:"ASUS VivoBook Laptop",price:"₹52,990",link:"#"}
-],
-
-"smartphones & tablets":[
-{title:"Samsung Galaxy Smartphone",price:"₹24,999",link:"#"},
-{title:"Redmi Note Smartphone",price:"₹17,999",link:"#"},
-{title:"Realme Narzo Smartphone",price:"₹14,999",link:"#"},
-{title:"iQOO Budget Smartphone",price:"₹19,999",link:"#"}
-],
-
-"audio & headphones":[
-{title:"Sony Wireless Headphones",price:"₹6,999",link:"#"},
-{title:"Boat Bluetooth Earbuds",price:"₹2,499",link:"#"},
-{title:"JBL Wireless Earphones",price:"₹3,999",link:"#"},
-{title:"Noise Airbuds",price:"₹2,199",link:"#"}
-]
-
-};
-
-
-/* ======================================
-   Load Products
-====================================== */
-
-function loadCategory(category){
-
-const grid=document.getElementById("productGrid");
-
-if(!grid) return;
-
-grid.innerHTML="";
-
-category=category.toLowerCase();
-
-let products=dummyProducts[category];
-
-if(!products){
-
-grid.innerHTML="<div class='glass-card'><div class='card-text'>Products coming soon</div></div>";
-return;
-
-}
-
-products.forEach(product=>{
-
-const card=document.createElement("div");
-
-card.className="glass-card";
-
-card.innerHTML=`
-<div class="card-title">${product.title}</div>
-<div class="theme-divider"></div>
-<div class="card-text">${product.price}</div>
-<a href="${product.link}" class="utility-btn">View Deal</a>
-`;
-
-grid.appendChild(card);
-
-});
-
-}
-
-
-/* ======================================
-   Carousel Scroll
-====================================== */
+// =====================================================
+// CAROUSEL CONTROL
+// =====================================================
 
 function scrollCarousel(direction){
 
-const container=document.getElementById("guideCarousel");
+const carousel = document.getElementById("guideCarousel");
 
-if(!container) return;
+const scrollAmount = 220;
 
-const scrollAmount=220;
-
-container.scrollBy({
-left:direction*scrollAmount,
+carousel.scrollBy({
+left:direction * scrollAmount,
 behavior:"smooth"
 });
 
 }
 
 
-/* ======================================
-   Helper : Clean Category Text
-====================================== */
 
-function cleanCategory(text){
+// =====================================================
+// SEARCH DROPDOWN SYSTEM
+// =====================================================
 
-return text
-.replace(/[^\w\s&]/g,"") 
-.replace(/\s+/g," ")
-.trim()
-.toLowerCase();
+const dropdownBtn = document.querySelector(".search-dropdown");
 
-}
+let dropdownMenu;
 
 
-/* ======================================
-   App Boot
-====================================== */
+if(dropdownBtn){
 
-document.addEventListener("DOMContentLoaded",function(){
+dropdownMenu = document.createElement("div");
 
-console.log("QPick App Loaded");
+dropdownMenu.className="search-dropdown-menu";
 
+dropdownMenu.innerHTML=`
 
-/* ---------- Elements Init ---------- */
+<div class="dropdown-item">💻 Products</div>
+<div class="dropdown-item">🏷 Deals</div>
+<div class="dropdown-item">🏢 Brands</div>
+<div class="dropdown-item">🔥 Offers</div>
+<div class="dropdown-item">📊 Compare</div>
+<div class="dropdown-item">📈 Price Charts</div>
+<div class="dropdown-item">📘 Buying Guides</div>
+<div class="dropdown-item">🗂 Categories</div>
 
-drawer=document.getElementById("drawer");
-overlay=document.getElementById("drawerOverlay");
-menuBtn=document.querySelector(".menu-btn");
+`;
 
+dropdownBtn.parentElement.appendChild(dropdownMenu);
 
-/* ---------- Menu Button ---------- */
+dropdownMenu.style.display="none";
 
-if(menuBtn){
-menuBtn.addEventListener("click",toggleDrawer);
-}
+dropdownBtn.addEventListener("click",()=>{
 
+if(dropdownMenu.style.display==="none"){
 
-/* ---------- Overlay Close ---------- */
+dropdownMenu.style.display="block";
 
-if(overlay){
-overlay.addEventListener("click",toggleDrawer);
-}
+}else{
 
+dropdownMenu.style.display="none";
 
-/* ---------- ESC Close ---------- */
-
-document.addEventListener("keydown",function(e){
-
-if(e.key==="Escape"){
-if(drawer && drawer.classList.contains("active")){
-toggleDrawer();
-}
 }
 
 });
 
+}
 
-/* ======================================
-   Drawer Category Click
-====================================== */
 
-document.querySelectorAll(".drawer a").forEach(link=>{
 
-link.addEventListener("click",function(e){
+// =====================================================
+// CLICK OUTSIDE DROPDOWN CLOSE
+// =====================================================
 
-e.preventDefault();
+document.addEventListener("click",function(e){
 
-let category=cleanCategory(this.textContent);
+if(dropdownMenu){
 
-toggleDrawer();
+if(!dropdownBtn.contains(e.target) && !dropdownMenu.contains(e.target)){
 
-loadCategory(category);
+dropdownMenu.style.display="none";
+
+}
+
+}
+
+});
+
+
+
+// =====================================================
+// SEARCH QUICK FILTER
+// =====================================================
+
+const searchInput = document.querySelector(".search-input");
+
+if(searchInput){
+
+searchInput.addEventListener("input",function(){
+
+const query = this.value.toLowerCase();
+
+const cards = document.querySelectorAll(".quick-card");
+
+cards.forEach(card=>{
+
+const text = card.innerText.toLowerCase();
+
+if(text.includes(query)){
+
+card.style.display="flex";
+
+}else{
+
+card.style.display="none";
+
+}
 
 });
 
 });
 
-
-/* ======================================
-   Quick Card Click
-====================================== */
-
-document.querySelectorAll(".quick-card").forEach(card=>{
-
-card.addEventListener("click",function(e){
-
-e.preventDefault();
-
-let title=this.querySelector(".quick-title");
-
-if(!title) return;
-
-let category=cleanCategory(title.innerText);
-
-loadCategory(category);
-
-});
-
-});
+}
 
 
-});
+
+// =====================================================
+// PRODUCT GRID DEMO DATA (OPTIONAL)
+// =====================================================
+
+const grid = document.getElementById("productGrid");
+
+if(grid){
+
+for(let i=1;i<=6;i++){
+
+const card = document.createElement("div");
+
+card.className="glass-card";
+
+card.innerHTML=`
+
+<div class="card-title">
+Sample Product ${i}
+</div>
+
+<div class="card-text">
+Smart product placeholder used for testing the QPick product grid system.
+</div>
+
+`;
+
+grid.appendChild(card);
+
+}
+
+}
