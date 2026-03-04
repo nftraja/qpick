@@ -1,9 +1,4 @@
-/* ======================================================
-QPick Original Theme + Welcome Search System
-FINAL COMBINED CSS
-======================================================*/
-
-body { box-sizing: border-box;}
+body {box-sizing:border-box;}
 
 *{
 margin:0;
@@ -19,7 +14,7 @@ overflow-x:hidden;
 padding:0;
 }
 
-html, body {
+html, body{
 height:100%;
 width:100%;
 }
@@ -32,6 +27,7 @@ width:1px;
 height:1px;
 overflow:hidden;
 }
+
 
 /* ================= HEADER ================= */
 
@@ -74,11 +70,10 @@ font-size:22px;
 font-weight:700;
 }
 
-/* ================= MAIN ================= */
-
 .main-content{
-padding:0px 0px 5px;
+padding:70px 5px 60px;
 }
+
 
 /* ================= DRAWER ================= */
 
@@ -131,6 +126,7 @@ display:none;
 
 .drawer-overlay.active{display:block;}
 
+
 /* ================= GLASS CARD ================= */
 
 .glass-card{
@@ -155,7 +151,139 @@ line-height:1.6;
 padding:5px 5px;
 }
 
-/* ================= SOCIAL PILLS ================= */
+
+/* ================= WELCOME CARD ================= */
+
+.welcome-title{
+font-size:18px;
+font-weight:700;
+color:#39ffb6;
+text-align:center;
+margin-bottom:4px;
+}
+
+.welcome-tagline{
+font-size:20px;
+font-weight:700;
+color:#ffffff;
+text-align:center;
+margin-bottom:6px;
+}
+
+.powered-by{
+font-size:12px;
+margin-top:3px;
+letter-spacing:.5px;
+background:linear-gradient(90deg,#ffd700,#ffb300);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+font-weight:600;
+margin-bottom:10px;
+text-align:center;
+}
+
+.welcome-text{
+font-size:14px;
+color:#f2f2f2;
+line-height:1.6;
+text-align:center;
+margin-bottom:8px;
+}
+
+
+/* ================= SEARCH BAR ================= */
+
+.search-glass{
+display:flex;
+align-items:center;
+gap:8px;
+padding:6px 10px;
+border-radius:14px;
+border:1px solid rgba(0,255,136,.35);
+background:rgba(0,0,0,.35);
+margin-top:10px;
+}
+
+.search-input{
+flex:1;
+height:26px;
+background:transparent;
+border:none;
+outline:none;
+color:#ffffff;
+font-size:14px;
+}
+
+.search-dropdown{
+width:26px;
+height:26px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+cursor:pointer;
+background:linear-gradient(135deg,#00c6ff,#0072ff);
+color:#fff;
+font-size:14px;
+}
+
+
+/* ================= SEARCH PANEL ================= */
+
+.search-panel{
+display:none;
+margin-top:10px;
+border-radius:14px;
+overflow:hidden;
+border:1px solid rgba(0,255,136,.35);
+background:rgba(0,0,0,.45);
+}
+
+.search-panel a{
+display:flex;
+align-items:center;
+gap:10px;
+padding:10px 12px;
+font-size:14px;
+color:#ffffff;
+text-decoration:none;
+border-bottom:1px solid rgba(255,255,255,.05);
+}
+
+
+/* ================= CAROUSEL ================= */
+
+.guide-carousel-title{
+font-size:14px;
+font-weight:700;
+color:#66ffb3;
+text-align:center;
+margin:8px 0;
+}
+
+.guide-carousel-wrap{
+position:relative;
+overflow:hidden;
+}
+
+.guide-carousel{
+display:flex;
+gap:10px;
+overflow-x:auto;
+scroll-behavior:smooth;
+padding:10px 5px;
+}
+
+.guide-carousel::-webkit-scrollbar{display:none;}
+
+.guide-card{
+flex:0 0 180px;
+width:180px;
+aspect-ratio:1/1;
+}
+
+
+/* ================= SOCIAL ================= */
 
 .social-links{
 display:flex;
@@ -178,8 +306,7 @@ color:#ffffff;
 text-decoration:none;
 white-space:nowrap;
 background:var(--chip-color);
-box-shadow:
-0 6px 14px rgba(0,0,0,.65),
+box-shadow:0 6px 14px rgba(0,0,0,.65),
 inset 0 1px 0 rgba(255,255,255,.35),
 inset 0 -3px 6px rgba(0,0,0,.55);
 border:1px solid rgba(255,255,255,.35);
@@ -188,10 +315,10 @@ text-shadow:0 1px 2px rgba(0,0,0,.9);
 
 .social-pill:active{
 transform:translateY(2px);
-box-shadow:
-0 2px 6px rgba(0,0,0,.75),
+box-shadow:0 2px 6px rgba(0,0,0,.75),
 inset 0 3px 6px rgba(0,0,0,.7);
 }
+
 
 /* ================= DIVIDER ================= */
 
@@ -207,36 +334,6 @@ transparent
 );
 }
 
-/* ================= BOTTOM NAV ================= */
-
-.bottom-nav{
-position:fixed;
-bottom:0;
-left:0;
-right:0;
-height:55px;
-backdrop-filter:blur(12px);
-display:flex;
-justify-content:space-around;
-align-items:center;
-border-top:1px solid rgba(0,255,136,0.28);
-z-index:200;
-}
-
-.bottom-nav a{
-color:gold;
-text-decoration:none;
-}
-
-.nav-item{
-text-align:center;
-font-size:11px;
-}
-
-.nav-item span{
-display:block;
-font-size:13px;
-}
 
 /* ================= UTILITY CARDS ================= */
 
@@ -274,17 +371,13 @@ font-size:13px;
 font-weight:700;
 text-decoration:none;
 color:#ffffff;
-background:linear-gradient(
-145deg,
-rgba(255,255,255,.18),
-rgba(0,0,0,.45)
-);
-box-shadow:
-0 6px 14px rgba(0,0,0,.65),
+background:linear-gradient(145deg,rgba(255,255,255,.18),rgba(0,0,0,.45));
+box-shadow:0 6px 14px rgba(0,0,0,.65),
 inset 0 1px 0 rgba(255,255,255,.35),
 inset 0 -2px 6px rgba(0,0,0,.6);
 border:1px solid rgba(255,255,255,.35);
 }
+
 
 /* ================= QUICK GRID ================= */
 
@@ -294,6 +387,9 @@ grid-template-columns:repeat(2,1fr);
 gap:10px;
 margin-bottom:12px;
 }
+
+
+/* ================= QUICK CARD ================= */
 
 .quick-card{
 position:relative;
@@ -306,16 +402,12 @@ justify-content:space-between;
 aspect-ratio:1/1;
 overflow:hidden;
 text-decoration:none;
-background:linear-gradient(
-135deg,
-rgba(255,255,255,0.10),
-rgba(255,255,255,0.02)
-);
+background:linear-gradient(135deg,rgba(255,255,255,0.10),rgba(255,255,255,0.02));
 border:1px solid rgba(255,255,255,0.18);
-box-shadow:
-inset 0 1px 0 rgba(255,255,255,0.25),
+box-shadow:inset 0 1px 0 rgba(255,255,255,0.25),
 inset 0 -8px 20px rgba(0,0,0,0.35),
 0 8px 25px rgba(0,0,0,0.55);
+transition:.35s ease;
 }
 
 .quick-card::before{
@@ -332,110 +424,68 @@ position:relative;
 z-index:2;
 }
 
-/* ======================================================
-WELCOME CARD ADDON
-======================================================*/
-
-.welcome-card{
-text-align:center;
+.quick-icon{
+font-size:24px;
+padding:7px 10px;
 }
 
-.welcome-title{
-font-size:18px;
+.quick-title{
+font-size:12px;
 font-weight:700;
-color:#00D4FF;
-margin-bottom:4px;
+line-height:1.4;
+padding:0px 8px;
 }
 
-.welcome-tagline{
-font-size:20px;
+.quick-cta{
+align-self:flex-start;
+margin-left:10px;
+margin-bottom:10px;
+padding:9px 18px;
+border-radius:999px;
+font-size:12px;
 font-weight:700;
 color:#ffffff;
-margin-bottom:6px;
+background:linear-gradient(145deg,rgba(255,255,255,.18),rgba(0,0,0,.45));
+border:1px solid rgba(255,255,255,.35);
 }
 
-.powered-by{
-font-size:12px;
-letter-spacing:.5px;
-background:linear-gradient(90deg,#ffd700,#ffb300);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-font-weight:600;
-margin-bottom:8px;
+.quick-cta:active{
+transform:translateY(2px);
+box-shadow:0 2px 6px rgba(0,0,0,.7);
 }
 
-.welcome-text{
-font-size:14px;
-color:#f2f2f2;
-line-height:1.6;
-}
 
-/* ================= SEARCH BAR ================= */
+/* ================= BOTTOM NAV ================= */
 
-.search-glass{
+.bottom-nav{
+position:fixed;
+bottom:0;
+left:0;
+right:0;
+height:55px;
+backdrop-filter:blur(12px);
 display:flex;
+justify-content:space-around;
 align-items:center;
-gap:8px;
-padding:6px 10px;
-border-radius:14px;
-border:1px solid rgba(0,255,136,.35);
-background:rgba(0,0,0,.35);
-margin-top:8px;
+border-top:1px solid rgba(0,255,136,0.28);
+z-index:200;
 }
 
-.search-input{
-flex:1;
-height:26px;
-background:transparent;
-border:none;
-outline:none;
-color:#fff;
-font-size:14px;
-}
-
-.search-dropdown{
-width:30px;
-height:30px;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-cursor:pointer;
-
-background:linear-gradient(135deg,#00c6ff,#0072ff);
-
-box-shadow:
-0 6px 18px rgba(0,0,0,.6),
-inset 0 2px 4px rgba(255,255,255,.4),
-inset 0 -4px 6px rgba(0,0,0,.6);
-
-color:#fff;
-font-size:14px;
-}
-
-/* ================= SEARCH PANEL ================= */
-
-.search-panel{
-display:none;
-margin-top:8px;
-border-radius:14px;
-border:1px solid rgba(0,255,136,.25);
-background:#0b0b0b;
-overflow:hidden;
-}
-
-.search-panel a{
-display:block;
-padding:10px 12px;
-font-size:14px;
-color:#fff;
+.bottom-nav a{
+color:gold;
 text-decoration:none;
-border-bottom:1px solid rgba(255,255,255,.05);
 }
 
-.search-panel a:hover{
-background:rgba(0,255,136,.08);
+.nav-item{
+text-align:center;
+font-size:11px;
 }
+
+.nav-item span{
+display:block;
+font-size:13px;
+}
+
 
 /* ================= RESPONSIVE ================= */
 
