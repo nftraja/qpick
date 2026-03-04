@@ -3,6 +3,7 @@
 // =====================================================
 
 
+
 // =====================================================
 // DRAWER MENU CONTROL
 // =====================================================
@@ -18,9 +19,13 @@ overlay.classList.toggle("active");
 
 }
 
+if(menuBtn){
 menuBtn.addEventListener("click",toggleDrawer);
+}
 
+if(overlay){
 overlay.addEventListener("click",toggleDrawer);
+}
 
 
 
@@ -31,6 +36,8 @@ overlay.addEventListener("click",toggleDrawer);
 function scrollCarousel(direction){
 
 const carousel = document.getElementById("guideCarousel");
+
+if(!carousel) return;
 
 const scrollAmount = 220;
 
@@ -44,51 +51,26 @@ behavior:"smooth"
 
 
 // =====================================================
-// SEARCH DROPDOWN SYSTEM
+// SEARCH DROPDOWN PANEL
 // =====================================================
 
-const dropdownBtn = document.querySelector(".search-dropdown");
+const dropdown = document.querySelector(".search-dropdown");
+const panel = document.getElementById("searchPanel");
 
-let dropdownMenu;
+function toggleSearchPanel(){
 
+if(!panel) return;
 
-if(dropdownBtn){
-
-dropdownMenu = document.createElement("div");
-
-dropdownMenu.className="search-dropdown-menu";
-
-dropdownMenu.innerHTML=`
-
-<div class="dropdown-item">💻 Products</div>
-<div class="dropdown-item">🏷 Deals</div>
-<div class="dropdown-item">🏢 Brands</div>
-<div class="dropdown-item">🔥 Offers</div>
-<div class="dropdown-item">📊 Compare</div>
-<div class="dropdown-item">📈 Price Charts</div>
-<div class="dropdown-item">📘 Buying Guides</div>
-<div class="dropdown-item">🗂 Categories</div>
-
-`;
-
-dropdownBtn.parentElement.appendChild(dropdownMenu);
-
-dropdownMenu.style.display="none";
-
-dropdownBtn.addEventListener("click",()=>{
-
-if(dropdownMenu.style.display==="none"){
-
-dropdownMenu.style.display="block";
-
+if(panel.style.display==="block"){
+panel.style.display="none";
 }else{
-
-dropdownMenu.style.display="none";
+panel.style.display="block";
+}
 
 }
 
-});
-
+if(dropdown){
+dropdown.addEventListener("click",toggleSearchPanel);
 }
 
 
@@ -99,12 +81,10 @@ dropdownMenu.style.display="none";
 
 document.addEventListener("click",function(e){
 
-if(dropdownMenu){
+if(panel && dropdown){
 
-if(!dropdownBtn.contains(e.target) && !dropdownMenu.contains(e.target)){
-
-dropdownMenu.style.display="none";
-
+if(!dropdown.contains(e.target) && !panel.contains(e.target)){
+panel.style.display="none";
 }
 
 }
@@ -178,26 +158,5 @@ Smart product placeholder used for testing the QPick product grid system.
 grid.appendChild(card);
 
 }
-
-}
-
-// ====================================
-// Search Dropdown Toggle
-// ====================================
-
-const dropdown = document.querySelector(".search-dropdown");
-const panel = document.getElementById("searchPanel");
-
-if(dropdown){
-
-dropdown.addEventListener("click",()=>{
-
-if(panel.style.display==="block"){
-panel.style.display="none";
-}else{
-panel.style.display="block";
-}
-
-});
 
 }
