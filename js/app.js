@@ -180,3 +180,24 @@ grid.appendChild(card);
 }
 
 }
+
+// ====================================
+// Search Dropdown Toggle
+// ====================================
+
+const dropdown = document.querySelector(".search-dropdown");
+const panel = document.getElementById("searchPanel");
+
+if(dropdown){
+
+dropdown.addEventListener("click",()=>{
+
+if(panel.style.display==="block"){
+panel.style.display="none";
+}else{
+panel.style.display="block";
+}
+
+});
+
+}
