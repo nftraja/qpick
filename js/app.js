@@ -3,75 +3,132 @@
    Core UI + Navigation System
 ================================ */
 
-/* ---------- Drawer Elements ---------- */
-
-const drawer = document.getElementById("drawer");
-const overlay = document.getElementById("drawerOverlay");
-const menuBtn = document.querySelector(".menu-btn");
+let drawer;
+let overlay;
 
 /* ---------- Drawer Toggle ---------- */
 
-function toggleDrawer() {
+function toggleDrawer(){
 
-    if(!drawer || !overlay) return;
+if(!drawer || !overlay) return;
 
-    drawer.classList.toggle("active");
-    overlay.classList.toggle("active");
+drawer.classList.toggle("active");
+overlay.classList.toggle("active");
 
-    if(drawer.classList.contains("active")){
-        document.body.style.overflow = "hidden";
-    }else{
-        document.body.style.overflow = "";
-    }
+if(drawer.classList.contains("active")){
+document.body.style.overflow="hidden";
+}else{
+document.body.style.overflow="";
 }
 
-/* ---------- Menu Button ---------- */
-
-if(menuBtn){
-    menuBtn.addEventListener("click",toggleDrawer);
 }
 
-/* ---------- Overlay Close ---------- */
+/* ---------- App Boot ---------- */
+
+document.addEventListener("DOMContentLoaded",function(){
+
+console.log("QPick App Loaded");
+
+/* elements */
+
+drawer=document.getElementById("drawer");
+overlay=document.getElementById("drawerOverlay");
+
+/* overlay close */
 
 if(overlay){
-    overlay.addEventListener("click",toggleDrawer);
+overlay.addEventListener("click",toggleDrawer);
 }
 
-/* ---------- ESC Key Close ---------- */
+/* ESC close */
 
 document.addEventListener("keydown",function(e){
 
-    if(e.key === "Escape" && drawer.classList.contains("active")){
-        toggleDrawer();
-    }
+if(e.key==="Escape" && drawer.classList.contains("active")){
+toggleDrawer();
+}
 
 });
 
+/* category links */
 
-/* ======================================
-   Category Click System
-====================================== */
+const categoryLinks=document.querySelectorAll(".drawer a");
 
-const categoryLinks = document.querySelectorAll(".drawer a");
+categoryLinks.forEach(link=>{
 
-categoryLinks.forEach(link => {
+link.addEventListener("click",function(e){
 
-    link.addEventListener("click",function(e){
+e.preventDefault();
 
-        e.preventDefault();
+const category=this.textContent.trim();
 
-        const category = this.textContent.trim();
+console.log("Category clicked:",category);
 
-        console.log("Category clicked:",category);
+toggleDrawer();
 
-        toggleDrawer();
-
-        loadCategory(category);
-
-    });
+loadCategory(category);
 
 });
 
+});
+
+/* quick cards */
+
+const quickCards=document.querySelectorAll(".quick-card");
+
+quickCards.forEach(card=>{
+
+card.addEventListener("click",function(e){
+
+e.preventDefault();
+
+const title=this.querySelector(".quick-title").innerText;
+
+console.log("Quick category:",title);
+
+loadCategory(title);
+
+});
+
+});
+
+/* utility buttons */
+
+const utilityBtns=document.querySelectorAll(".utility-btn");
+
+utilityBtns.forEach(btn=>{
+
+btn.addEventListener("click",function(e){
+
+e.preventDefault();
+
+const action=this.innerText;
+
+console.log("Utility action:",action);
+
+});
+
+});
+
+/* bottom nav */
+
+const bottomNav=document.querySelectorAll(".bottom-nav a");
+
+bottomNav.forEach(nav=>{
+
+nav.addEventListener("click",function(e){
+
+e.preventDefault();
+
+const navItem=this.innerText;
+
+console.log("Bottom nav:",navItem);
+
+});
+
+});
+
+});
 
 /* ======================================
    Category Loader (Future Product API)
@@ -79,84 +136,8 @@ categoryLinks.forEach(link => {
 
 function loadCategory(category){
 
-    console.log("Loading category:",category);
+console.log("Loading category:",category);
 
-    /* future product loading system */
+/* future product loading system */
 
 }
-
-
-/* ======================================
-   Quick Card Click System
-====================================== */
-
-const quickCards = document.querySelectorAll(".quick-card");
-
-quickCards.forEach(card => {
-
-    card.addEventListener("click",function(e){
-
-        e.preventDefault();
-
-        const title = this.querySelector(".quick-title").innerText;
-
-        console.log("Quick category:",title);
-
-        loadCategory(title);
-
-    });
-
-});
-
-
-/* ======================================
-   Utility Button Handler
-====================================== */
-
-const utilityBtns = document.querySelectorAll(".utility-btn");
-
-utilityBtns.forEach(btn => {
-
-    btn.addEventListener("click",function(e){
-
-        e.preventDefault();
-
-        const action = this.innerText;
-
-        console.log("Utility action:",action);
-
-    });
-
-});
-
-
-/* ======================================
-   Bottom Navigation Handler
-====================================== */
-
-const bottomNav = document.querySelectorAll(".bottom-nav a");
-
-bottomNav.forEach(nav => {
-
-    nav.addEventListener("click",function(e){
-
-        e.preventDefault();
-
-        const navItem = this.innerText;
-
-        console.log("Bottom nav:",navItem);
-
-    });
-
-});
-
-
-/* ======================================
-   App Boot
-====================================== */
-
-document.addEventListener("DOMContentLoaded",function(){
-
-    console.log("QPick App Loaded");
-
-});
