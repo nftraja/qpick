@@ -490,6 +490,17 @@ margin:auto;
 padding:0 10px;
 }
 
+.powered-by{
+font-size:12px;
+margin-top:6px;
+letter-spacing:.5px;
+background:linear-gradient(90deg,#ffd700,#ffb300);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+
+font-weight:600;
+}
+
 @media(min-width:768px){
 .quick-grid{grid-template-columns:repeat(3,1fr);}
 }
