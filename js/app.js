@@ -173,8 +173,10 @@ link.addEventListener("click",function(e){
 
 e.preventDefault();
 
-/* emoji remove */
-let category=this.textContent.trim().replace(/^[^\w]+/,"");
+/* clean emoji + spaces */
+let category=this.textContent
+.replace(/[^\w\s&]/g,"")
+.trim();
 
 toggleDrawer();
 
