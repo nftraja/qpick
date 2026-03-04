@@ -7,6 +7,7 @@
 let drawer;
 let overlay;
 
+
 /* ---------- Drawer Toggle ---------- */
 
 function toggleDrawer(){
@@ -104,6 +105,26 @@ grid.appendChild(card);
 
 
 /* ======================================
+   Carousel Scroll (GLOBAL)
+====================================== */
+
+function scrollCarousel(direction){
+
+const container=document.getElementById("guideCarousel");
+
+if(!container) return;
+
+const scrollAmount=220;
+
+container.scrollBy({
+left:direction*scrollAmount,
+behavior:"smooth"
+});
+
+}
+
+
+/* ======================================
    App Boot
 ====================================== */
 
@@ -113,6 +134,15 @@ console.log("QPick App Loaded");
 
 drawer=document.getElementById("drawer");
 overlay=document.getElementById("drawerOverlay");
+
+const menuBtn=document.querySelector(".menu-btn");
+
+
+/* ---------- Menu Button ---------- */
+
+if(menuBtn){
+menuBtn.addEventListener("click",toggleDrawer);
+}
 
 
 /* ---------- Overlay Close ---------- */
@@ -172,15 +202,5 @@ loadCategory(title);
 
 });
 
-function scrollCarousel(direction){
-
-const container = document.getElementById("guideCarousel");
-
-const scrollAmount = 220;
-
-container.scrollBy({
-left: direction * scrollAmount,
-behavior: "smooth"
 });
 
-}
