@@ -6,6 +6,7 @@
 
 let drawer;
 let overlay;
+let menuBtn;
 
 
 /* ---------- Drawer Toggle ---------- */
@@ -86,15 +87,10 @@ const card=document.createElement("div");
 card.className="glass-card";
 
 card.innerHTML=`
-
 <div class="card-title">${product.title}</div>
-
 <div class="theme-divider"></div>
-
 <div class="card-text">${product.price}</div>
-
 <a href="${product.link}" class="utility-btn">View Deal</a>
-
 `;
 
 grid.appendChild(card);
@@ -105,7 +101,7 @@ grid.appendChild(card);
 
 
 /* ======================================
-   Carousel Scroll (GLOBAL)
+   Carousel Scroll
 ====================================== */
 
 function scrollCarousel(direction){
@@ -132,10 +128,11 @@ document.addEventListener("DOMContentLoaded",function(){
 
 console.log("QPick App Loaded");
 
+/* ---------- Elements Init ---------- */
+
 drawer=document.getElementById("drawer");
 overlay=document.getElementById("drawerOverlay");
-
-const menuBtn=document.querySelector(".menu-btn");
+menuBtn=document.querySelector(".menu-btn");
 
 
 /* ---------- Menu Button ---------- */
@@ -203,4 +200,3 @@ loadCategory(title);
 });
 
 });
-
