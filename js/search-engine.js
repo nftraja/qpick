@@ -1,131 +1,130 @@
-// =====================================================
-// QPICK SMART SEARCH ENGINE
-// =====================================================
+// ====================================
+// QPick Command Search Engine
+// ====================================
 
 
-// SEARCH DATA
+// search index
 
-const qpickSearchData = [
+const searchIndex = [
 
-{type:"product",name:"Laptops & Computing"},
-{type:"product",name:"Smartphones & Tablets"},
-{type:"product",name:"Audio & Headphones"},
-{type:"product",name:"Gaming Gear"},
-{type:"product",name:"Monitors & Displays"},
-
-{type:"deal",name:"Top Deals"},
-{type:"deal",name:"Flash Sales"},
-{type:"deal",name:"Marketplace Offers"},
+{type:"category",name:"Laptops"},
+{type:"category",name:"Smartphones"},
+{type:"category",name:"Gaming Gear"},
+{type:"category",name:"Headphones"},
+{type:"category",name:"Monitors"},
+{type:"category",name:"Accessories"},
 
 {type:"brand",name:"Apple"},
 {type:"brand",name:"Samsung"},
 {type:"brand",name:"Sony"},
 {type:"brand",name:"Dell"},
-{type:"brand",name:"Lenovo"},
+{type:"brand",name:"HP"},
+{type:"brand",name:"Asus"},
+
+{type:"deal",name:"Laptop Deals"},
+{type:"deal",name:"Smartphone Deals"},
+{type:"deal",name:"Gaming Deals"},
 
 {type:"guide",name:"Laptop Buying Guide"},
-{type:"guide",name:"Smartphone Buying Guide"},
-{type:"guide",name:"Gaming Setup Guide"}
+{type:"guide",name:"Best Gaming Setup"},
+{type:"guide",name:"Best Budget Phones"}
 
 ];
 
 
-// SEARCH ELEMENTS
+
+// ====================================
+// SEARCH INPUT
+// ====================================
 
 const searchInput = document.querySelector(".search-input");
-const searchContainer = document.querySelector(".search-glass");
-
-let searchResults;
+const searchPanel = document.getElementById("searchPanel");
 
 
-// CREATE RESULT PANEL
 
-if(searchInput){
-
-searchResults = document.createElement("div");
-
-searchResults.className = "search-results";
-
-searchContainer.appendChild(searchResults);
-
-searchResults.style.display="none";
-
-}
-
-
-// SEARCH ENGINE
-
-function runSearch(query){
-
-const results = qpickSearchData.filter(item =>
-
-item.name.toLowerCase().includes(query)
-
-);
-
-renderResults(results);
-
-}
-
-
+// ====================================
 // RENDER RESULTS
+// ====================================
 
 function renderResults(results){
 
-searchResults.innerHTML="";
+searchPanel.innerHTML="";
 
-if(results.length === 0){
+if(results.length===0){
 
-searchResults.innerHTML="<div class='search-item'>No results</div>";
+searchPanel.innerHTML=`
+<a>No results found</a>
+`;
+
+return;
 
 }
 
 results.forEach(item=>{
 
-const div = document.createElement("div");
+let icon="🔎";
 
-div.className="search-item";
+if(item.type==="category") icon="📦";
+if(item.type==="brand") icon="🏷";
+if(item.type==="deal") icon="🔥";
+if(item.type==="guide") icon="📘";
 
-div.innerHTML=`${item.name}`;
+const el=document.createElement("a");
 
-searchResults.appendChild(div);
+el.innerHTML=`
+${icon} ${item.name}
+`;
+
+searchPanel.appendChild(el);
 
 });
-
-searchResults.style.display="block";
 
 }
 
 
-// INPUT EVENT
+
+// ====================================
+// SEARCH ENGINE
+// ====================================
+
+if(searchInput){
 
 searchInput.addEventListener("input",function(){
 
-const query = this.value.toLowerCase();
+const query=this.value.toLowerCase();
 
-if(query.length<1){
+if(query.length===0){
 
-searchResults.style.display="none";
+searchPanel.style.display="none";
 return;
 
 }
 
-runSearch(query);
+const results=searchIndex.filter(item=>{
+
+return item.name.toLowerCase().includes(query);
 
 });
 
+renderResults(results);
 
-// CLOSE OUTSIDE
+searchPanel.style.display="block";
+
+});
+
+}
+
+
+
+// ====================================
+// CLICK OUTSIDE CLOSE
+// ====================================
 
 document.addEventListener("click",function(e){
 
-if(!searchContainer.contains(e.target)){
+if(!searchInput.contains(e.target) && !searchPanel.contains(e.target)){
 
-if(searchResults){
-
-searchResults.style.display="none";
-
-}
+searchPanel.style.display="none";
 
 }
 
