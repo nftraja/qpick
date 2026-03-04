@@ -31,7 +31,7 @@ document.body.style.overflow="";
    Dummy Product Database
 ====================================== */
 
-const dummyProducts = {
+const dummyProducts={
 
 "laptops & computing":[
 {title:"HP Pavilion Laptop",price:"₹59,990",link:"#"},
@@ -76,8 +76,8 @@ let products=dummyProducts[category];
 if(!products){
 
 grid.innerHTML="<div class='glass-card'><div class='card-text'>Products coming soon</div></div>";
-
 return;
+
 }
 
 products.forEach(product=>{
@@ -128,6 +128,7 @@ document.addEventListener("DOMContentLoaded",function(){
 
 console.log("QPick App Loaded");
 
+
 /* ---------- Elements Init ---------- */
 
 drawer=document.getElementById("drawer");
@@ -153,8 +154,10 @@ overlay.addEventListener("click",toggleDrawer);
 
 document.addEventListener("keydown",function(e){
 
-if(e.key==="Escape" && drawer.classList.contains("active")){
+if(e.key==="Escape"){
+if(drawer && drawer.classList.contains("active")){
 toggleDrawer();
+}
 }
 
 });
@@ -198,5 +201,6 @@ loadCategory(title);
 });
 
 });
+
 
 });
