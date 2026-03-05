@@ -69,7 +69,7 @@ font-weight:700;
 }
 
 .main-content{
-padding:70px 5px 75px;
+padding:70px 10px 75px;
 }
 
 .drawer{
@@ -127,7 +127,7 @@ display:block;
 border:1px solid rgba(0,255,136,0.28);
 border-radius:18px;
 padding:12px;
-margin:5px 5px 10px 5px;
+margin:8px;
 background:rgba(255,255,255,.04);
 }
 
