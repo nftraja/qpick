@@ -136,11 +136,40 @@ productGrid.innerHTML = html;
 
 
 // ===============================
+// Carousel Card Click → Load Products
+// ===============================
+
+function initCarouselClicks(){
+
+const cards = document.querySelectorAll(".guide-card");
+
+cards.forEach(card=>{
+
+card.addEventListener("click",function(){
+
+renderProducts();
+
+if(productGrid){
+productGrid.style.display = "grid";
+}
+
+productGrid.scrollIntoView({
+behavior:"smooth"
+});
+
+});
+
+});
+
+}
+
+
+// ===============================
 // Init
 // ===============================
 
 document.addEventListener("DOMContentLoaded",function(){
 
-renderProducts();
+initCarouselClicks();
 
 });
