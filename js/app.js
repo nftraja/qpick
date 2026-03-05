@@ -1,214 +1,146 @@
-/* ===============================
-   QPick App Engine
-================================ */
+// ===============================
+// QPick Core App JS
+// ===============================
 
-/* ---------- Elements ---------- */
+const drawer = document.getElementById("drawer");
+const overlay = document.getElementById("drawerOverlay");
+const menuBtn = document.querySelector(".menu-btn");
+const carousel = document.getElementById("guideCarousel");
+const productGrid = document.getElementById("productGrid");
 
-let drawer;
-let overlay;
-let menuBtn;
 
-
-/* ---------- Drawer Toggle ---------- */
+// ===============================
+// Drawer Toggle
+// ===============================
 
 function toggleDrawer(){
-
-if(!drawer || !overlay) return;
-
-drawer.classList.toggle("active");
-overlay.classList.toggle("active");
-
-if(drawer.classList.contains("active")){
-document.body.style.overflow="hidden";
-}else{
-document.body.style.overflow="";
+  drawer.classList.toggle("active");
+  overlay.classList.toggle("active");
 }
 
+if(menuBtn){
+menuBtn.addEventListener("click", toggleDrawer);
 }
 
-
-/* ======================================
-   Dummy Product Database
-====================================== */
-
-const dummyProducts={
-
-"laptops & computing":[
-{title:"HP Pavilion Laptop",price:"₹59,990",link:"#"},
-{title:"Dell Inspiron Laptop",price:"₹54,990",link:"#"},
-{title:"Lenovo IdeaPad Slim",price:"₹49,990",link:"#"},
-{title:"ASUS VivoBook Laptop",price:"₹52,990",link:"#"}
-],
-
-"smartphones & tablets":[
-{title:"Samsung Galaxy Smartphone",price:"₹24,999",link:"#"},
-{title:"Redmi Note Smartphone",price:"₹17,999",link:"#"},
-{title:"Realme Narzo Smartphone",price:"₹14,999",link:"#"},
-{title:"iQOO Budget Smartphone",price:"₹19,999",link:"#"}
-],
-
-"audio & headphones":[
-{title:"Sony Wireless Headphones",price:"₹6,999",link:"#"},
-{title:"Boat Bluetooth Earbuds",price:"₹2,499",link:"#"},
-{title:"JBL Wireless Earphones",price:"₹3,999",link:"#"},
-{title:"Noise Airbuds",price:"₹2,199",link:"#"}
-]
-
-};
-
-
-/* ======================================
-   Load Products
-====================================== */
-
-function loadCategory(category){
-
-const grid=document.getElementById("productGrid");
-
-if(!grid) return;
-
-grid.innerHTML="";
-
-category=category.toLowerCase();
-
-let products=dummyProducts[category];
-
-if(!products){
-
-grid.innerHTML="<div class='glass-card'><div class='card-text'>Products coming soon</div></div>";
-
-return;
-
-}
-
-products.forEach(product=>{
-
-const card=document.createElement("div");
-
-card.className="glass-card";
-
-card.innerHTML=`
-
-<div class="card-title">${product.title}</div>
-
-<div class="theme-divider"></div>
-
-<div class="card-text">${product.price}</div>
-
-<a href="${product.link}" class="utility-btn">View Deal</a>
-
-`;
-
-grid.appendChild(card);
-
-});
-
+if(overlay){
+overlay.addEventListener("click", toggleDrawer);
 }
 
 
-/* ======================================
-   Carousel Scroll
-====================================== */
+// ===============================
+// Carousel Scroll
+// ===============================
 
 function scrollCarousel(direction){
 
-const container=document.getElementById("guideCarousel");
+if(!carousel) return;
 
-if(!container) return;
-
-const scrollAmount=220;
-
-container.scrollBy({
-left:direction*scrollAmount,
+carousel.scrollBy({
+left: direction * 220,
 behavior:"smooth"
 });
 
 }
 
 
-/* ======================================
-   App Boot
-====================================== */
+// ===============================
+// FAKE API PRODUCT DATA
+// ===============================
+
+const fakeProducts = [
+
+{
+title:"Gaming Laptop RTX 4060",
+price:"₹89,999",
+image:"https://images.unsplash.com/photo-1517336714731-489689fd1ca8",
+link:"#"
+},
+
+{
+title:"Wireless Noise Cancel Headphones",
+price:"₹7,499",
+image:"https://images.unsplash.com/photo-1518444028785-8f0a0c6e2f1c",
+link:"#"
+},
+
+{
+title:"Mechanical Gaming Keyboard RGB",
+price:"₹3,999",
+image:"https://images.unsplash.com/photo-1587829741301-dc798b83add3",
+link:"#"
+},
+
+{
+title:"4K Creator Monitor",
+price:"₹32,500",
+image:"https://images.unsplash.com/photo-1527443224154-c4a3942d3acf",
+link:"#"
+},
+
+{
+title:"Smartphone 5G Flagship",
+price:"₹54,999",
+image:"https://images.unsplash.com/photo-1511707171634-5f897ff02aa9",
+link:"#"
+},
+
+{
+title:"Wireless Gaming Mouse",
+price:"₹2,499",
+image:"https://images.unsplash.com/photo-1587202372775-e229f172b9d7",
+link:"#"
+}
+
+];
+
+
+// ===============================
+// Render Products
+// ===============================
+
+function renderProducts(){
+
+if(!productGrid) return;
+
+let html = "";
+
+fakeProducts.forEach(product=>{
+
+html += `
+
+<div class="glass-card">
+
+<img src="${product.image}" style="width:100%;border-radius:12px;margin-bottom:8px;">
+
+<div class="card-title">
+${product.title}
+</div>
+
+<div class="card-text">
+Price: ${product.price}
+</div>
+
+<a href="${product.link}" class="social-pill" style="--chip-color:linear-gradient(135deg,#ff416c,#ff4b2b);">
+View Deal →
+</a>
+
+</div>
+
+`;
+
+});
+
+productGrid.innerHTML = html;
+
+}
+
+
+// ===============================
+// Init
+// ===============================
 
 document.addEventListener("DOMContentLoaded",function(){
 
-console.log("QPick App Loaded");
-
-
-/* ---------- Elements Init ---------- */
-
-drawer=document.getElementById("drawer");
-overlay=document.getElementById("drawerOverlay");
-menuBtn=document.querySelector(".menu-btn");
-
-
-/* ---------- Menu Button ---------- */
-
-if(menuBtn){
-menuBtn.addEventListener("click",toggleDrawer);
-}
-
-
-/* ---------- Overlay Close ---------- */
-
-if(overlay){
-overlay.addEventListener("click",toggleDrawer);
-}
-
-
-/* ---------- ESC Close ---------- */
-
-document.addEventListener("keydown",function(e){
-
-if(e.key==="Escape"){
-if(drawer && drawer.classList.contains("active")){
-toggleDrawer();
-}
-}
-
-});
-
-
-/* ======================================
-   Drawer Category Click
-====================================== */
-
-document.querySelectorAll(".drawer a").forEach(link=>{
-
-link.addEventListener("click",function(e){
-
-e.preventDefault();
-
-/* clean emoji */
-let category=this.textContent
-.replace(/[^\w\s&]/g,"")
-.trim();
-
-toggleDrawer();
-
-loadCategory(category);
-
-});
-
-});
-
-
-/* ======================================
-   Quick Card Click
-====================================== */
-
-document.querySelectorAll(".quick-card").forEach(card=>{
-
-card.addEventListener("click",function(e){
-
-e.preventDefault();
-
-const title=this.querySelector(".quick-title").innerText.trim();
-
-loadCategory(title);
-
-});
-
-});
+renderProducts();
 
 });
