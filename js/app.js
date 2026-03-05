@@ -14,8 +14,8 @@ const productGrid = document.getElementById("productGrid");
 // ===============================
 
 function toggleDrawer(){
-  drawer.classList.toggle("active");
-  overlay.classList.toggle("active");
+drawer.classList.toggle("active");
+overlay.classList.toggle("active");
 }
 
 if(menuBtn){
@@ -44,67 +44,89 @@ behavior:"smooth"
 
 
 // ===============================
-// FAKE API PRODUCT DATA
+// FAKE CATEGORY PRODUCT APIs
 // ===============================
 
-const fakeProducts = [
+const productAPI = {
 
+laptops:[
 {
 title:"Gaming Laptop RTX 4060",
 price:"₹89,999",
 image:"https://images.unsplash.com/photo-1517336714731-489689fd1ca8",
 link:"#"
 },
-
 {
-title:"Wireless Noise Cancel Headphones",
+title:"Ultrabook Intel i7",
+price:"₹74,999",
+image:"https://images.unsplash.com/photo-1496181133206-80ce9b88a853",
+link:"#"
+}
+],
+
+audio:[
+{
+title:"Noise Cancel Headphones",
 price:"₹7,499",
 image:"https://images.unsplash.com/photo-1518444028785-8f0a0c6e2f1c",
 link:"#"
 },
-
 {
-title:"Mechanical Gaming Keyboard RGB",
+title:"Wireless Earbuds Pro",
+price:"₹3,299",
+image:"https://images.unsplash.com/photo-1585386959984-a41552231658",
+link:"#"
+}
+],
+
+gaming:[
+{
+title:"Mechanical RGB Keyboard",
 price:"₹3,999",
 image:"https://images.unsplash.com/photo-1587829741301-dc798b83add3",
 link:"#"
 },
-
-{
-title:"4K Creator Monitor",
-price:"₹32,500",
-image:"https://images.unsplash.com/photo-1527443224154-c4a3942d3acf",
-link:"#"
-},
-
-{
-title:"Smartphone 5G Flagship",
-price:"₹54,999",
-image:"https://images.unsplash.com/photo-1511707171634-5f897ff02aa9",
-link:"#"
-},
-
 {
 title:"Wireless Gaming Mouse",
 price:"₹2,499",
 image:"https://images.unsplash.com/photo-1587202372775-e229f172b9d7",
 link:"#"
 }
+],
 
-];
+monitors:[
+{
+title:"4K Creator Monitor",
+price:"₹32,500",
+image:"https://images.unsplash.com/photo-1527443224154-c4a3942d3acf",
+link:"#"
+},
+{
+title:"144Hz Gaming Monitor",
+price:"₹21,999",
+image:"https://images.unsplash.com/photo-1587202372616-b43abea06c2a",
+link:"#"
+}
+]
+
+};
 
 
 // ===============================
 // Render Products
 // ===============================
 
-function renderProducts(){
+function renderProducts(category){
 
 if(!productGrid) return;
 
+const products = productAPI[category];
+
+if(!products) return;
+
 let html = "";
 
-fakeProducts.forEach(product=>{
+products.forEach(product=>{
 
 html += `
 
@@ -132,44 +154,42 @@ View Deal →
 
 productGrid.innerHTML = html;
 
-}
-
-
-// ===============================
-// Carousel Card Click → Load Products
-// ===============================
-
-function initCarouselClicks(){
-
-const cards = document.querySelectorAll(".guide-card");
-
-cards.forEach(card=>{
-
-card.addEventListener("click",function(){
-
-renderProducts();
-
-if(productGrid){
-productGrid.style.display = "grid";
-}
+productGrid.classList.add("active");
 
 productGrid.scrollIntoView({
-behavior:"smooth"
-});
-
-});
-
+behavior:"smooth",
+block:"start"
 });
 
 }
 
 
 // ===============================
-// Init
+// Carousel Click Detection
 // ===============================
 
 document.addEventListener("DOMContentLoaded",function(){
 
-initCarouselClicks();
+const cards = document.querySelectorAll(".guide-card");
+
+cards.forEach((card,index)=>{
+
+card.addEventListener("click",function(e){
+
+e.preventDefault();
+
+let category = "";
+
+if(index === 0) category="laptops";
+if(index === 1) category="audio";
+if(index === 2) category="audio";
+if(index === 3) category="gaming";
+if(index === 4) category="monitors";
+
+renderProducts(category);
+
+});
+
+});
 
 });
