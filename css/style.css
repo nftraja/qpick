@@ -166,7 +166,7 @@ display:grid;
 }
 
 .product-grid .glass-card{
-aspect-ratio:1/1;
+aspect-ratio:1/2;
 display:flex;
 flex-direction:column;
 justify-content:space-between;
