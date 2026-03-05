@@ -6,7 +6,7 @@ margin:0;
 padding:0;
 box-sizing:border-box;
 font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
-    }
+}
    
 body{
 background:linear-gradient(135deg,#0b0b0b,#151515);
@@ -16,8 +16,8 @@ padding:0;
 }
    
 html, body {
-  height: 100%;
-  width: 100%;
+height: 100%;
+width: 100%;
 }
 
 .seo-h1{
@@ -161,6 +161,8 @@ gap:8px;
 justify-content:center;
 }
 
+/* FIX: chip-color support added */
+
 .social-pill{
 position:relative;
 display:inline-flex;
@@ -175,7 +177,7 @@ letter-spacing:.3px;
 color:#ffffff;
 text-decoration:none;
 white-space:nowrap;
-background:var(--pill-color);
+background:var(--chip-color,var(--pill-color));
 box-shadow:
 0 6px 14px rgba(0,0,0,.65),
 inset 0 1px 0 rgba(255,255,255,.35),
@@ -287,16 +289,19 @@ inset 0 2px 4px rgba(255,255,255,.4),
 inset 0 -4px 6px rgba(0,0,0,.6);
 }
 
-.carousel-arrow.left{
-left:4px;
-}
-
-.carousel-arrow.right{
-right:4px;
-}
+.carousel-arrow.left{left:4px;}
+.carousel-arrow.right{right:4px;}
 
 .carousel-arrow:active{
 transform:translateY(-50%) scale(.9);
+}
+
+/* FIX: quick-card support */
+
+.quick-card{
+display:flex;
+flex-direction:column;
+justify-content:space-between;
 }
 
 .guide-card{
@@ -384,7 +389,7 @@ box-shadow:
 0 2px 6px rgba(0,0,0,.75),
 inset 0 3px 6px rgba(0,0,0,.7);
 }
-   
+
 .quick-grid{
 display:grid;
 grid-template-columns:repeat(1,1fr);
@@ -393,21 +398,21 @@ margin-bottom:8px;
 }
 
 .quick-grid-heading {
-  grid-column: 1 / -1;
-  text-align: center;
-  padding: 8px 8px;
-  border-radius: 18px;
-  font-size: 14px;
-  border:0.7px solid rgba(0,255,136,0.28);  
-  color:#66ffb3;
-  background:rgba(255,255,255,.04);
+grid-column: 1 / -1;
+text-align: center;
+padding: 8px 8px;
+border-radius: 18px;
+font-size: 14px;
+border:0.7px solid rgba(0,255,136,0.28);  
+color:#66ffb3;
+background:rgba(255,255,255,.04);
 }
-  
-  .quick-grid-heading h2 {
-  margin: 0;
-  font-size: 16px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
+
+.quick-grid-heading h2 {
+margin: 0;
+font-size: 16px;
+font-weight: 600;
+letter-spacing: 0.5px;
 }
 
 @media(min-width:1200px){
