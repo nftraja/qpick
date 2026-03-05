@@ -155,10 +155,9 @@ background:linear-gradient(90deg,transparent,rgba(0,255,136,0.28),transparent);
 }
 
 .product-grid{
-display:none;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:6px;
-padding:8px;
+display:flex;
+flex-direction:column;;
+margin:0;
 }
 
 .product-grid.active{
