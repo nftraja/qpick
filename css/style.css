@@ -415,7 +415,7 @@ pointer-events:none;
 
 .guide-card span.gloss{
 position:absolute;
-top:-60%;
+top:-80%;
 left:-40%;
 width:60%;
 height:220%;
@@ -436,15 +436,10 @@ z-index:2;
 }
 
 .guide-card{
-font-size:24px;
-padding:7px 10px;  
-}
-
-.guide-card{
 font-size:12px;
 font-weight:700;
 line-height:1.4;
-padding:0px 8px;  
+padding:10px 8px;  
 }
 
 .guide-cta{
