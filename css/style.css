@@ -369,19 +369,28 @@ justify-content:space-between;
 }
 
 .guide-card{
-position:relative;
-border-radius:18px;
-padding:12px;
-color:#fff;
-display:flex;
-flex-direction:column;
-justify-content:space-between;
-aspect-ratio:1/1;
-overflow:hidden;
+align-self:flex-start;
+margin-left:10px;
+margin-bottom:10px;
+padding:9px 18px;
+border-radius:999px;
+font-size:12px;
+font-weight:700;
 text-decoration:none;
-transition:.28s ease;
-background:rgba(255,255,255,0.05);
-border:1px solid rgba(255,255,255,0.12);
+color:#ffffff;
+background:linear-gradient(145deg,
+rgba(255,255,255,.18),
+rgba(0,0,0,.45)
+);
+box-shadow:
+0 6px 14px rgba(0,0,0,.65),
+inset 0 1px 0 rgba(255,255,255,.35),
+inset 0 -2px 6px rgba(0,0,0,.6);
+border:1px solid rgba(255,255,255,.35);
+letter-spacing:.3px;
+display:inline-block;
+white-space:nowrap;
+transform:translateZ(0);
 }
   
 .guide-card::before{
