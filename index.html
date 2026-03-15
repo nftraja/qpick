@@ -4,14 +4,46 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <title>QPick – Discover Smarter. Buy Better.</title>
 
 <meta name="description" content="QPick is a self-organizing product discovery platform helping users explore technology, gadgets, digital tools and marketplace deals across multiple partner platforms.">
+
 <meta name="robots" content="index,follow">
 
 <link rel="stylesheet" href="css/style.css">
+
+
+<!-- Disable Zoom Script -->
+
+<script>
+
+document.addEventListener('gesturestart', function (e) {
+e.preventDefault();
+});
+
+document.addEventListener('dblclick', function (e) {
+e.preventDefault();
+});
+
+let lastTouchEnd = 0;
+
+document.addEventListener('touchend', function (event) {
+
+const now = (new Date()).getTime();
+
+if (now - lastTouchEnd <= 300) {
+event.preventDefault();
+}
+
+lastTouchEnd = now;
+
+}, false);
+
+</script>
 
 </head>
 
