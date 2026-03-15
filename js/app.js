@@ -61,13 +61,13 @@ data.brands.forEach(brand => {
 
 html += `
 
-<div class="brand-card">
+<div class="glass-card">
 
 <div class="brand-logo">
 <img src="https://logo.clearbit.com/${brand.domain}" alt="${brand.name}">
 </div>
 
-<div class="brand-name">
+<div class="brand-title">
 ${brand.name}
 </div>
 
@@ -75,7 +75,7 @@ ${brand.name}
 ${brand.description}
 </p>
 
-<a href="${brand.link}" class="brand-btn">
+<a href="${brand.link}" class="brand-cta">
 ${brand.button} →
 </a>
 
