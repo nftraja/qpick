@@ -1,0 +1,69 @@
+{
+  "amazon": [
+
+    {
+      "image": "https://m.media-amazon.com/images/I/61CGHv6kmWL._SL1500_.jpg",
+      "price": "₹2,999",
+      "discount": "40% OFF",
+      "link": "https://amzn.to/example1"
+    },
+
+    {
+      "image": "https://m.media-amazon.com/images/I/61SUj2aKoEL._SL1500_.jpg",
+      "price": "₹1,499",
+      "discount": "35% OFF",
+      "link": "https://amzn.to/example2"
+    },
+
+    {
+      "image": "https://m.media-amazon.com/images/I/61bK6PMOC3L._SL1500_.jpg",
+      "price": "₹4,999",
+      "discount": "28% OFF",
+      "link": "https://amzn.to/example3"
+    },
+
+    {
+      "image": "https://m.media-amazon.com/images/I/61KNJav3S9L._SL1500_.jpg",
+      "price": "₹1,299",
+      "discount": "50% OFF",
+      "link": "https://amzn.to/example4"
+    }
+
+  ],
+
+  "myntra": [
+
+    {
+      "image": "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/2025/JANUARY/10/sample1.jpg",
+      "price": "₹2,199",
+      "discount": "30% OFF",
+      "link": "https://myntr.it/example1"
+    },
+
+    {
+      "image": "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/2025/JANUARY/10/sample2.jpg",
+      "price": "₹1,899",
+      "discount": "22% OFF",
+      "link": "https://myntr.it/example2"
+    }
+
+  ],
+
+  "flipkart": [
+
+    {
+      "image": "https://rukminim2.flixcart.com/image/850/1000/xif0q/headphone/sample1.jpeg",
+      "price": "₹1,599",
+      "discount": "45% OFF",
+      "link": "https://flipkart.com/example1"
+    },
+
+    {
+      "image": "https://rukminim2.flixcart.com/image/850/1000/xif0q/headphone/sample2.jpeg",
+      "price": "₹3,499",
+      "discount": "20% OFF",
+      "link": "https://flipkart.com/example2"
+    }
+
+  ]
+}
