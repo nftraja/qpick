@@ -1,84 +1,69 @@
 {
-  "amazon": {
-    "brand": "Amazon",
-    "domain": "amazon.com",
-    "color": "linear-gradient(135deg,#ff9900,#ff5e00)",
-    "products": [
+  "amazon": [
 
-      {
-        "image": "https://m.media-amazon.com/images/I/61LtuGzXeaL._SL1500_.jpg",
-        "price": "₹1,499",
-        "discount": "35% OFF",
-        "link": "https://amzn.to/example1"
-      },
+    {
+      "image": "https://m.media-amazon.com/images/I/61LtuGzXeaL._SL1500_.jpg",
+      "price": "₹1,499",
+      "discount": "35% OFF",
+      "link": "https://amzn.to/example1"
+    },
 
-      {
-        "image": "https://m.media-amazon.com/images/I/61mpMH5TzkL._SL1500_.jpg",
-        "price": "₹899",
-        "discount": "40% OFF",
-        "link": "https://amzn.to/example2"
-      },
+    {
+      "image": "https://m.media-amazon.com/images/I/61mpMH5TzkL._SL1500_.jpg",
+      "price": "₹899",
+      "discount": "40% OFF",
+      "link": "https://amzn.to/example2"
+    },
 
-      {
-        "image": "https://m.media-amazon.com/images/I/71E6nHhR7HL._SL1500_.jpg",
-        "price": "₹2,299",
-        "discount": "28% OFF",
-        "link": "https://amzn.to/example3"
-      },
+    {
+      "image": "https://m.media-amazon.com/images/I/71E6nHhR7HL._SL1500_.jpg",
+      "price": "₹2,299",
+      "discount": "28% OFF",
+      "link": "https://amzn.to/example3"
+    },
 
-      {
-        "image": "https://m.media-amazon.com/images/I/61uA2UVnYWL._SL1500_.jpg",
-        "price": "₹799",
-        "discount": "45% OFF",
-        "link": "https://amzn.to/example4"
-      }
+    {
+      "image": "https://m.media-amazon.com/images/I/61uA2UVnYWL._SL1500_.jpg",
+      "price": "₹799",
+      "discount": "45% OFF",
+      "link": "https://amzn.to/example4"
+    }
 
-    ]
-  },
+  ],
 
-  "myntra": {
-    "brand": "Myntra",
-    "domain": "myntra.com",
-    "color": "linear-gradient(135deg,#ff3f6c,#ff8a00)",
-    "products": [
+  "myntra": [
 
-      {
-        "image": "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/sample-accessory1.jpg",
-        "price": "₹1,299",
-        "discount": "25% OFF",
-        "link": "https://myntr.it/example1"
-      },
+    {
+      "image": "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/sample-accessory1.jpg",
+      "price": "₹1,299",
+      "discount": "25% OFF",
+      "link": "https://myntr.it/example1"
+    },
 
-      {
-        "image": "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/sample-accessory2.jpg",
-        "price": "₹1,699",
-        "discount": "18% OFF",
-        "link": "https://myntr.it/example2"
-      }
+    {
+      "image": "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/sample-accessory2.jpg",
+      "price": "₹1,699",
+      "discount": "18% OFF",
+      "link": "https://myntr.it/example2"
+    }
 
-    ]
-  },
+  ],
 
-  "flipkart": {
-    "brand": "Flipkart",
-    "domain": "flipkart.com",
-    "color": "linear-gradient(135deg,#2874f0,#00c6ff)",
-    "products": [
+  "flipkart": [
 
-      {
-        "image": "https://rukminim2.flixcart.com/image/850/1000/xif0q/mouse/sample1.jpeg",
-        "price": "₹699",
-        "discount": "38% OFF",
-        "link": "https://flipkart.com/example1"
-      },
+    {
+      "image": "https://rukminim2.flixcart.com/image/850/1000/xif0q/mouse/sample1.jpeg",
+      "price": "₹699",
+      "discount": "38% OFF",
+      "link": "https://flipkart.com/example1"
+    },
 
-      {
-        "image": "https://rukminim2.flixcart.com/image/850/1000/xif0q/keyboard/sample2.jpeg",
-        "price": "₹1,199",
-        "discount": "30% OFF",
-        "link": "https://flipkart.com/example2"
-      }
+    {
+      "image": "https://rukminim2.flixcart.com/image/850/1000/xif0q/keyboard/sample2.jpeg",
+      "price": "₹1,199",
+      "discount": "30% OFF",
+      "link": "https://flipkart.com/example2"
+    }
 
-    ]
-  }
+  ]
 }
