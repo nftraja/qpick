@@ -94,7 +94,7 @@ brandGrid.innerHTML = html;
 
 .catch(error => {
 
-console.log("Brand JSON Load Error:", error);
+console.log("Brand JSON Error:", error);
 
 });
 
