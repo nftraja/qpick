@@ -1,0 +1,69 @@
+{
+  "amazon": [
+
+    {
+      "image": "https://m.media-amazon.com/images/I/81QpkIctqPL._SL1500_.jpg",
+      "price": "₹14,999",
+      "discount": "28% OFF",
+      "link": "https://amzn.to/example1"
+    },
+
+    {
+      "image": "https://m.media-amazon.com/images/I/71rKk6H+1PL._SL1500_.jpg",
+      "price": "₹19,499",
+      "discount": "22% OFF",
+      "link": "https://amzn.to/example2"
+    },
+
+    {
+      "image": "https://m.media-amazon.com/images/I/71P0M4o1pBL._SL1500_.jpg",
+      "price": "₹12,999",
+      "discount": "30% OFF",
+      "link": "https://amzn.to/example3"
+    },
+
+    {
+      "image": "https://m.media-amazon.com/images/I/81dAe7s8cPL._SL1500_.jpg",
+      "price": "₹24,999",
+      "discount": "18% OFF",
+      "link": "https://amzn.to/example4"
+    }
+
+  ],
+
+  "myntra": [
+
+    {
+      "image": "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/sample-monitor1.jpg",
+      "price": "₹17,999",
+      "discount": "20% OFF",
+      "link": "https://myntr.it/example1"
+    },
+
+    {
+      "image": "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/sample-monitor2.jpg",
+      "price": "₹21,999",
+      "discount": "15% OFF",
+      "link": "https://myntr.it/example2"
+    }
+
+  ],
+
+  "flipkart": [
+
+    {
+      "image": "https://rukminim2.flixcart.com/image/850/1000/xif0q/monitor/sample1.jpeg",
+      "price": "₹13,999",
+      "discount": "32% OFF",
+      "link": "https://flipkart.com/example1"
+    },
+
+    {
+      "image": "https://rukminim2.flixcart.com/image/850/1000/xif0q/monitor/sample2.jpeg",
+      "price": "₹18,499",
+      "discount": "25% OFF",
+      "link": "https://flipkart.com/example2"
+    }
+
+  ]
+}
