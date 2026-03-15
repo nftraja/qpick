@@ -514,8 +514,8 @@ QPick BRAND STORE GRID
 .brand-store-grid{
 display:grid;
 grid-template-columns:repeat(2,1fr);
-gap:16px;
-margin-top:15px;
+gap:6px;
+margin-top:8px;
 }
 
 /* Tablet */
