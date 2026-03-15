@@ -40,3 +40,62 @@ behavior:"smooth"
 });
 
 }
+
+// ===============================
+// Load Brand Stores
+// ===============================
+
+const brandGrid = document.getElementById("brandGrid");
+
+if(brandGrid){
+
+fetch("json/brands.json")
+
+.then(response => response.json())
+
+.then(data => {
+
+let html = "";
+
+data.brands.forEach(brand => {
+
+html += `
+
+<div class="glass-card">
+
+<div class="card-title">
+${brand.name}
+</div>
+
+<div class="theme-divider-b"></div>
+
+<p class="card-text">
+${brand.description}
+</p>
+
+<div class="theme-divider-b"></div>
+
+<a href="${brand.link}" class="social-pill"
+style="--chip-color:linear-gradient(135deg,#396afc,#2948ff);">
+
+${brand.button} →
+
+</a>
+
+</div>
+
+`;
+
+});
+
+brandGrid.innerHTML = html;
+
+})
+
+.catch(error => {
+
+console.log("Brand JSON Load Error:", error);
+
+});
+
+}
