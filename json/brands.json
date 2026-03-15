@@ -1,0 +1,245 @@
+{
+"brands":[
+
+{
+"name":"Amazon",
+"domain":"amazon.in",
+"description":"Explore electronics, gadgets, smart devices and digital products across the Amazon marketplace.",
+"button":"Open Amazon Store",
+"link":"#"
+},
+
+{
+"name":"Flipkart",
+"domain":"flipkart.com",
+"description":"Discover smartphones, laptops, electronics and technology products with exclusive deals.",
+"button":"Open Flipkart Store",
+"link":"#"
+},
+
+{
+"name":"Myntra",
+"domain":"myntra.com",
+"description":"Explore fashion tech wearables, smart accessories and lifestyle gadgets from Myntra.",
+"button":"Open Myntra Store",
+"link":"#"
+},
+
+{
+"name":"Apple",
+"domain":"apple.com",
+"description":"Discover iPhone, MacBook, iPad and premium technology devices from Apple.",
+"button":"Open Apple Store",
+"link":"#"
+},
+
+{
+"name":"Samsung",
+"domain":"samsung.com",
+"description":"Explore smartphones, tablets, TVs, smart home devices and consumer electronics from Samsung.",
+"button":"Open Samsung Store",
+"link":"#"
+},
+
+{
+"name":"Sony",
+"domain":"sony.com",
+"description":"Discover headphones, cameras, gaming devices and entertainment technology from Sony.",
+"button":"Open Sony Store",
+"link":"#"
+},
+
+{
+"name":"OnePlus",
+"domain":"oneplus.com",
+"description":"Explore premium smartphones, earbuds and smart devices from OnePlus.",
+"button":"Open OnePlus Store",
+"link":"#"
+},
+
+{
+"name":"Xiaomi",
+"domain":"mi.com",
+"description":"Shop smartphones, smart home products and gadgets from Xiaomi.",
+"button":"Open Xiaomi Store",
+"link":"#"
+},
+
+{
+"name":"Realme",
+"domain":"realme.com",
+"description":"Discover smartphones, earbuds, wearables and smart devices from Realme.",
+"button":"Open Realme Store",
+"link":"#"
+},
+
+{
+"name":"HP",
+"domain":"hp.com",
+"description":"Explore laptops, printers and computing devices from HP.",
+"button":"Open HP Store",
+"link":"#"
+},
+
+{
+"name":"Dell",
+"domain":"dell.com",
+"description":"Discover business laptops, gaming PCs and computing hardware from Dell.",
+"button":"Open Dell Store",
+"link":"#"
+},
+
+{
+"name":"Lenovo",
+"domain":"lenovo.com",
+"description":"Explore laptops, tablets and business computing devices from Lenovo.",
+"button":"Open Lenovo Store",
+"link":"#"
+},
+
+{
+"name":"ASUS",
+"domain":"asus.com",
+"description":"Discover gaming laptops, motherboards and electronics from ASUS.",
+"button":"Open ASUS Store",
+"link":"#"
+},
+
+{
+"name":"Acer",
+"domain":"acer.com",
+"description":"Explore laptops, gaming devices and monitors from Acer.",
+"button":"Open Acer Store",
+"link":"#"
+},
+
+{
+"name":"Logitech",
+"domain":"logitech.com",
+"description":"Discover keyboards, mice, webcams and computer accessories from Logitech.",
+"button":"Open Logitech Store",
+"link":"#"
+},
+
+{
+"name":"Razer",
+"domain":"razer.com",
+"description":"Explore gaming laptops, gaming peripherals and esports gear from Razer.",
+"button":"Open Razer Store",
+"link":"#"
+},
+
+{
+"name":"Corsair",
+"domain":"corsair.com",
+"description":"Discover gaming keyboards, RAM, power supplies and PC components from Corsair.",
+"button":"Open Corsair Store",
+"link":"#"
+},
+
+{
+"name":"NVIDIA",
+"domain":"nvidia.com",
+"description":"Explore graphics cards, AI computing platforms and gaming GPUs from NVIDIA.",
+"button":"Open NVIDIA Store",
+"link":"#"
+},
+
+{
+"name":"AMD",
+"domain":"amd.com",
+"description":"Discover processors, graphics cards and high performance computing solutions from AMD.",
+"button":"Open AMD Store",
+"link":"#"
+},
+
+{
+"name":"Intel",
+"domain":"intel.com",
+"description":"Explore processors, AI computing and PC platforms powered by Intel.",
+"button":"Open Intel Store",
+"link":"#"
+},
+
+{
+"name":"GoPro",
+"domain":"gopro.com",
+"description":"Discover action cameras, creator gear and adventure recording devices from GoPro.",
+"button":"Open GoPro Store",
+"link":"#"
+},
+
+{
+"name":"DJI",
+"domain":"dji.com",
+"description":"Explore drones, camera stabilizers and aerial photography equipment from DJI.",
+"button":"Open DJI Store",
+"link":"#"
+},
+
+{
+"name":"Canon",
+"domain":"canon.com",
+"description":"Discover cameras, lenses and imaging devices from Canon.",
+"button":"Open Canon Store",
+"link":"#"
+},
+
+{
+"name":"Nikon",
+"domain":"nikon.com",
+"description":"Explore photography cameras, lenses and imaging solutions from Nikon.",
+"button":"Open Nikon Store",
+"link":"#"
+},
+
+{
+"name":"BenQ",
+"domain":"benq.com",
+"description":"Discover professional monitors, projectors and display technology from BenQ.",
+"button":"Open BenQ Store",
+"link":"#"
+},
+
+{
+"name":"LG",
+"domain":"lg.com",
+"description":"Explore TVs, monitors, smart home electronics and appliances from LG.",
+"button":"Open LG Store",
+"link":"#"
+},
+
+{
+"name":"TP-Link",
+"domain":"tp-link.com",
+"description":"Discover routers, mesh WiFi systems and networking devices from TP-Link.",
+"button":"Open TP-Link Store",
+"link":"#"
+},
+
+{
+"name":"Western Digital",
+"domain":"wd.com",
+"description":"Explore SSDs, hard drives and storage solutions from Western Digital.",
+"button":"Open WD Store",
+"link":"#"
+},
+
+{
+"name":"Seagate",
+"domain":"seagate.com",
+"description":"Discover high capacity storage drives and data solutions from Seagate.",
+"button":"Open Seagate Store",
+"link":"#"
+},
+
+{
+"name":"Udemy",
+"domain":"udemy.com",
+"description":"Learn technology, coding, business and digital skills through online courses on Udemy.",
+"button":"Open Udemy",
+"link":"#"
+}
+
+]
+}
