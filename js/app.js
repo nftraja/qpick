@@ -64,11 +64,10 @@ html += `
 <div class="glass-card">
 
 <div class="brand-logo">
-<img src="https://logo.clearbit.com/${brand.domain}" alt="${brand.name}">
-</div>
-
-<div class="brand-title">
-${brand.name}
+<img 
+src="https://logo.clearbit.com/${brand.domain}" 
+onerror="this.src='https://www.google.com/s2/favicons?domain=${brand.domain}&sz=128'"
+alt="${brand.name}">
 </div>
 
 <p class="brand-desc">
