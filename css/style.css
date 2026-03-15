@@ -519,18 +519,191 @@ width:100%;
 max-width:100%;
 box-sizing:border-box;
 margin-top:18px;
+padding:0 6px;
 }
 
-/* Brand cards inside grid */
+/* Brand Card */
 
 .brand-store-grid .glass-card{
 width:100%;
 margin:0;
 box-sizing:border-box;
 overflow:hidden;
+padding:16px;
+position:relative;
+transition:.35s;
 }
 
-/* Tablet */
+/* Hover Glow */
+
+.brand-store-grid .glass-card:hover{
+
+transform:translateY(-3px);
+
+box-shadow:
+0 0 18px rgba(0,255,136,.35),
+0 0 35px rgba(0,255,200,.15);
+
+border:1px solid rgba(0,255,136,.55);
+
+}
+
+
+/* ===============================
+Brand Logo
+=============================== */
+
+.brand-logo{
+
+width:100%;
+display:flex;
+justify-content:center;
+align-items:center;
+
+margin-bottom:10px;
+
+}
+
+.brand-logo img{
+
+height:38px;
+max-width:120px;
+object-fit:contain;
+
+filter:drop-shadow(0 0 6px rgba(0,255,136,.35));
+
+}
+
+
+/* ===============================
+Brand Title
+=============================== */
+
+.brand-title{
+
+font-size:14px;
+font-weight:700;
+color:#66ffb3;
+text-align:center;
+margin-bottom:6px;
+
+}
+
+
+/* ===============================
+Brand Description
+=============================== */
+
+.brand-desc{
+
+font-size:13px;
+color:#f2f2f2;
+line-height:1.6;
+text-align:center;
+margin-bottom:12px;
+
+}
+
+
+/* ===============================
+Brand CTA Button
+=============================== */
+
+.brand-cta{
+
+display:block;
+width:100%;
+
+text-align:center;
+
+padding:9px 16px;
+
+border-radius:999px;
+
+font-size:12px;
+font-weight:700;
+
+text-decoration:none;
+color:#fff;
+
+background:linear-gradient(
+135deg,
+#ff512f,
+#dd2476,
+#396afc,
+#00c6ff
+);
+
+background-size:300% 300%;
+
+border:1px solid rgba(255,255,255,.35);
+
+box-shadow:
+0 6px 14px rgba(0,0,0,.65),
+inset 0 1px 0 rgba(255,255,255,.35),
+inset 0 -2px 6px rgba(0,0,0,.6);
+
+position:relative;
+overflow:hidden;
+
+}
+
+
+/* CTA Shine Animation */
+
+.brand-cta::before{
+
+content:"";
+position:absolute;
+
+top:0;
+left:-70%;
+
+width:50%;
+height:100%;
+
+background:linear-gradient(
+120deg,
+transparent,
+rgba(255,255,255,.6),
+transparent
+);
+
+transform:skewX(-20deg);
+
+}
+
+.brand-cta:hover::before{
+
+animation:ctaShine .9s forwards;
+
+}
+
+@keyframes ctaShine{
+
+0%{left:-70%}
+
+100%{left:130%}
+
+}
+
+
+/* Button press */
+
+.brand-cta:active{
+
+transform:translateY(2px);
+
+box-shadow:
+0 2px 6px rgba(0,0,0,.7),
+inset 0 3px 6px rgba(0,0,0,.7);
+
+}
+
+
+/* ===============================
+Tablet
+=============================== */
 
 @media(min-width:768px){
 
@@ -540,7 +713,10 @@ grid-template-columns:repeat(3,1fr);
 
 }
 
-/* Desktop */
+
+/* ===============================
+Desktop
+=============================== */
 
 @media(min-width:1200px){
 
