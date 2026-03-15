@@ -76,7 +76,7 @@ ${brand.description}
 <div class="theme-divider-b"></div>
 
 <a href="${brand.link}" class="social-pill"
-style="--chip-color:linear-gradient(135deg,#396afc,#2948ff);">
+style="--chip-color:linear-gradient(135deg,#ff512f,#dd2476,#396afc,#00c6ff);">
 
 ${brand.button} →
 
